@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin: auto;
+            width: 50%;
+        }
+        .para{
+        text-align: center;
+        font-size: 30px;
+        text-transform: uppercase;
+        color: blueviolet;
+        }
+        .show{
+            margin: auto;
+            font-size: 30px;
+            text-align: center;
+            color: greenyellow;
+        }
+        #card,#expiry,#password{
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #btn{
+            margin: auto;
+            padding: 10px;
+            font-size: 20px;
+             cursor: pointer;
+        }
+        .div1{
+            text-align: center;
+        }
+        #payment{
+            font-size: 20px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .amount{
+            color: rgb(105, 128, 0);
+            font-size: 20px;
+        }
+        .p2{
+            text-align: center;
+            color: blue;
+        }
+    </style>
+    <title>payment</title>
+    
+</head>
+<body>
+    <p class="para">payment By debit card</p>
+    <p class="p2">your total payable amount <span class="amount"></span></p>
+    <div class="main">
+        <form action="" id="formtag"><br/>
+          <span>Enter card number</span><br/>
+          <input type="number"id="card" placeholder="enter card number"><br/>
+          <span>Enter Expiry date</span><br/>
+          <input class="inputCard" type="month" name="expiry" id="expiry"/><br/>
+          <span>Enter password</span><br/>
+          <input type="password" placeholder="password" id="password"><br/>
+          <input type="submit" id="payment">
+        </form>
+    </div>
+    <div class="div1">
+        <p class="show"></p>
+    </div>
+</body>
+</html>
+<script>
+    var amount=document.querySelector(".amount")
+    amount.innerText="Rs."+localStorage.getItem("totalpayment")
+    document.querySelector("#formtag").addEventListener("submit",function(e){
+        e.preventDefault()
+        document.querySelector("#card").value=""
+        document.querySelector("#expiry").value=""
+        document.querySelector("#password").value=""
+        document.querySelector(".show").innerText="Congratulation! you ordered successfully"
+       var button =document.createElement("button")
+       button.setAttribute("id","btn")
+       button.innerText="continue shoping"
+       amount.innerText="Paid"
+       button.addEventListener("click",function(){
+           window.location.href="/landing/index.html"
+          
+       })
+       document.querySelector(".div1").append(button)
+    })
+    
+</script>
