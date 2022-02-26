@@ -1,3 +1,6 @@
+var buyArr=JSON.parse(localStorage.getItem("selectProduct")) || [];
+console.log(buyArr);
+var allproductdata=JSON.parse(localStorage.getItem("ProductData"));
 display(allproductdata);
 function display(data) {
   document.querySelector(".right").innerHTML="";
@@ -46,9 +49,26 @@ function display(data) {
     div2.append(p1, p2);
     div.append(div0, p, div1, div2);
     document.querySelector(".right").append(div);
+    button.addEventListener("click",function(){
+      var cartArr=[];
+        cartArr.push(elem);
+        console.log(cartArr);
+        localStorage.setItem("gotocard",JSON.stringify(cartArr));
+        addToCart(elem);
+        //window.location.href = "/Bella-Vita-Organic/Md Arif/buynow.html";
+        
+
+      window.location.href = "/Bella-Vita-Organic/Md Arif/buynow.html";
+    })
   });
 }
-
+function addToCart(elem){
+  elem.quant=1;
+  console.log(elem);
+  buyArr.push(elem);
+  console.log(buyArr);
+  localStorage.setItem("selectProduct",JSON.stringify(buyArr));
+}
 function seemore() {
   var btn = document.querySelector(".btn_para");
   var dots = document.querySelector("#dots");

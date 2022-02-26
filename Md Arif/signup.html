@@ -56,7 +56,7 @@
 <body>
     <div id="container">
         <div id="home">
-            <button>Home  ></button>
+            <button onclick="window.location.href='/Bella-Vita-Organic/By category/skin care/index.html'">Home  ></button>
             <p >Create Accoun</p>
         </div>
         <div class="p1">CREATE AN ACCOUNT</div>
@@ -83,6 +83,7 @@
         var lastname=document.querySelector("#lastname").value;
         var email=document.querySelector("#email").value;
         var password=document.querySelector("#password").value;
+        
         var obj={
             firstname:firstname,
             lastname:lastname,
@@ -91,6 +92,7 @@
         }
         Arrobj.push(obj);
         localStorage.setItem("customerInfo",JSON.stringify(Arrobj));
+       // window.location.href = "./Bella-Vita-Organic/By category/skin care/index.html";
     }
     document.querySelector("#create").addEventListener("mouseenter",function(){
         document.querySelector("#create").style.backgroundColor="green";
@@ -98,7 +100,9 @@
     document.querySelector("#create").addEventListener("mouseout",function(){
         document.querySelector("#create").style.backgroundColor="black";
     })
-
-//     font-family: 'Roboto Serif', sans-serif;
-// font-family: 'Sen', sans-serif;
+      document.querySelector("#create").addEventListener("click",function(){
+        window.location.href = "/Bella-Vita-Organic/By category/skin care/index.html";
+        
+     })
+   
 </script>

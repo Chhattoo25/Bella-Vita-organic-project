@@ -87,12 +87,12 @@
 <body>
     <div id="container">
     <div id="home1">
-        <button class="home" onclick="window.location.href='index.html'">Home</button>
+        <button class="home"onclick="window.location.href='/Bella-Vita-Organic/By category/skin care/index.html'">Home</button>
         <button class="home">>  Create Account</button>
     </div>
     <div class="mycart">
         <h2>MY CART</h2>
-        <button class="home2" onclick="window.location.href='index.html'">Continue Shopping  ></button>
+        <button class="home2" onclick="window.location.href='/Bella-Vita-Organic/By category/skin care/skincare.html'">Continue Shopping  ></button>
     </div>
     <div id="main">
         <div class="product">
@@ -179,6 +179,7 @@
             div.style.display="flex";
             document.querySelector(".product").append(div);
         });
+        showTotal();
     }
     // var total = selectArr.reduce(function(acc,elem,index){
     //     return acc + elem.price;
@@ -209,6 +210,7 @@
     var total=selectArr.reduce(function(acc,itm,index){
     return acc+((itm.price)*(itm.quant));
   },0);
+  console.log(total);
   document.querySelector("#totals").textContent="Rs."+total;
   }
 //   function increasequant(index)
