@@ -16,6 +16,7 @@
         }
         #home1{
             margin-left:50px;
+            cursor: pointer;
         }
         .home{
             border-width: 0px;
@@ -25,6 +26,7 @@
             font-weight: 700px;
             color:rgb(156, 150, 150);
             font-family:sans-serif;
+            cursor: pointer;
         }
         .home+.home{
             font-weight: bold;
@@ -82,17 +84,38 @@
             text-align: center;
             padding-top:5px;
         }
+        .images{
+            width: 120px;
+            height: 120px;
+        }
+        .prices{
+            font-weight: 600;
+            margin-top: -10px;
+            font-size: 20px;
+        }
+        .btn1{
+            font-Size:30px;
+            width:40px;
+            background-Color:white;
+            border:1px solid black;
+        }
+        .btn2{
+            font-Size:30px;
+            width:40px;
+            background-Color:white;
+            border:1px solid black;
+        }
     </style>
 </head>
 <body>
     <div id="container">
     <div id="home1">
-        <button class="home" onclick="window.location.href='index.html'">Home</button>
+        <button class="home" onclick="window.location.href='/landing/index.html'">Home</button>
         <button class="home">>  Create Account</button>
     </div>
     <div class="mycart">
         <h2>MY CART</h2>
-        <button class="home2" onclick="window.location.href='index.html'">Continue Shopping  ></button>
+        <button class="home2" onclick="window.location.href='/landing/index.html'">Continue Shopping  ></button>
     </div>
     <div id="main">
         <div class="product">
@@ -111,62 +134,43 @@
 </html>
 
 <script>
-    var selectArr=JSON.parse(localStorage.getItem("selectProduct"));
-    console.log(selectArr);
+    var selectArr=JSON.parse(localStorage.getItem("selectProduct"))||[];
     select(selectArr);
     function select(selectArr){
         //document.querySelector(".promain").innerHTML=null;
         selectArr.map(function(elem,index){
             var image=document.createElement("img");
             image.setAttribute("src",elem.img)
-            image.style.width="120px";
-            image.style.height="120px";
+            image.setAttribute("class","images")
             var div1=document.createElement("div");
             div1.append(image);
             var div2=document.createElement("div");
             var para=document.createElement("p");
             para.innerText=elem.pname;
             var price=document.createElement("p");
-            price.innerText= "Rs."+elem.price;
-            price.style.marginTop="-10px";
-            price.style.fontSize="20px";
-            price.style.fontWeight="bold";
+            price.innerText= "Rs:"+elem.price;
+            price.setAttribute("class","prices");
             var div3=document.createElement("div");
             var para2=document.createElement("p");
-            para2.innerText="Quantity:";
+            para2.innerText="Quantity:"+elem.quant;
             var btn1=document.createElement("button");
             btn1.innerText="-";
-            btn1.style.fontSize="30px";
-            btn1.style.width="40px";
-            btn1.style.backgroundColor="white";
-            btn1.style.borderWidth="1px";
+            btn1.setAttribute("class","btn1")
             
             var div4=document.createElement("div");
             div4.setAttribute("class","quantity");
             
             var btn2=document.createElement("button");
             btn2.innerText="+";
-            btn2.style.fontSize="30px";
-            btn2.style.width="40px";
-            btn2.style.backgroundColor="white";
-            btn2.style.borderWidth="1px";
+            btn2.setAttribute("class","btn2")
             div4.innerText=elem.quant;
             var add=1;
             btn2.addEventListener("click",function(){
-                add++;
-               div4.innerText=add;
-                increaseQuant(index)
                
+                increaseQuant(elem)
             });
             btn1.addEventListener("click",function(){  
-                             
-                if(add>=2)
-                {
-                    add--;
-                    div4.innerText=add;
-                    decreaseQuant(index);
-                }
-                
+                decreaseQuant(elem) 
                 
             });
             var divmain=document.createElement("div");
@@ -174,6 +178,7 @@
             divmain.style.display="flex";
             div2.append(para,price,para2,divmain);
             var div=document.createElement("div");
+            
             div.setAttribute("class","promain");
             div.append(div1,div2);
             div.style.display="flex";
@@ -186,31 +191,10 @@
     // document.querySelector("#totals").innerText= "Rs."+total;
 
 
-    function increaseQuant(index){
-    selectArr[index].quant++;
-    //localStorage.setItem("selectProduct",JSON.stringify(selectArr));
-    console.log(selectArr);
-    //select(selectArr);
-    showTotal();
-    
-  }
-  function decreaseQuant(index){
-    selectArr[index].quant--;
-   //localStorage.setItem("selectProduct",JSON.stringify(selectArr));
-    //select(selectArr);
-    if(selectArr[index].quant>=1)
-    {
-        showTotal();
-     }
-    
-    
-  }
-  function showTotal(){
-    var total=selectArr.reduce(function(acc,itm,index){
-    return acc+((itm.price)*(itm.quant));
-  },0);
-  document.querySelector("#totals").textContent="Rs."+total;
-  }
+   
+  
+ 
+  
 //   function increasequant(index)
 //   {
 //     document.querySelector("h1").textContent=index+1;

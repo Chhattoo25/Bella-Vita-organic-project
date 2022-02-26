@@ -1,7 +1,7 @@
 display(allproductdata);
 function display(data) {
   document.querySelector(".right").innerHTML="";
-  data.map(function (elem) {
+  data.map(function (elem,index) {
 
     var div = document.createElement("div");
     div.setAttribute("class", "boxes");
@@ -14,6 +14,9 @@ function display(data) {
     var button=document.createElement("button")
     button.innerText="BUY NOW"
     button.setAttribute("class","btn_buy")
+    button.addEventListener("click",function(){
+      addtocart(elem)
+    })
     div0.append(imgs,button);
    
     var p = document.createElement("p");
@@ -34,7 +37,7 @@ function display(data) {
     var span = document.createElement("span");
     span.innerText = "1909 reviews";
     div1.append(i1, i2, i3, i4, i5, span);
-    div2 = document.createElement("div");
+   var div2 = document.createElement("div");
     div2.setAttribute("class", "div2");
     var p1 = document.createElement("p");
     p1.innerText = elem.offprice;
@@ -47,6 +50,12 @@ function display(data) {
     div.append(div0, p, div1, div2);
     document.querySelector(".right").append(div);
   });
+}
+var cartitems=JSON.parse(localStorage.getItem("selectProduct"))||[]
+function addtocart(elem){
+cartitems.push(elem)
+localStorage.setItem("selectProduct",JSON.stringify(cartitems))
+
 }
 
 function seemore() {
