@@ -51,14 +51,21 @@
         content:" *";
         color:red;
     }
+    .main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     </style>
 </head>
 <body>
     <div id="container">
         <div id="home">
             <button style="cursor: pointer;" onClick="window.location.href='/landing/index.html'">Home  ></button>
-            <p >Create Accoun</p>
+            <p >Create Account</p>
         </div>
+        <div class="main">
         <div class="p1">CREATE AN ACCOUNT</div>
         <div id="form">
             <p>Sign up for a free account at Bella Vita Organic.</p>
@@ -73,6 +80,7 @@
             <br>
             <button onClick="signUp()" id="create">CREATE AN ACCOUNT</button>
         </div>
+    </div>
     </div>
 </body>
 </html>
