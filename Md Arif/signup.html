@@ -71,7 +71,7 @@
             <h3>Your Password</h3>
             <input type="password" id="password"/>
             <br>
-            <button onclick="signUp()" id="create">CREATE AN ACCOUNT</button>
+            <button onClick="signUp()" id="create">CREATE AN ACCOUNT</button>
         </div>
     </div>
 </body>
@@ -91,6 +91,7 @@
         }
         Arrobj.push(obj);
         localStorage.setItem("customerInfo",JSON.stringify(Arrobj));
+
     }
     document.querySelector("#create").addEventListener("mouseenter",function(){
         document.querySelector("#create").style.backgroundColor="green";
@@ -101,4 +102,7 @@
 
 //     font-family: 'Roboto Serif', sans-serif;
 // font-family: 'Sen', sans-serif;
+document.querySelector("#create").addEventListener("click",function(){
+    window.location.href="/landing/index.html"
+})
 </script>

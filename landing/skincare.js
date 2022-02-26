@@ -16,6 +16,10 @@ function display(data) {
     button.setAttribute("class","btn_buy")
     button.addEventListener("click",function(){
       addtocart(elem)
+      var cartArr=[];
+        cartArr.push(elem);
+        localStorage.setItem("gotocard",JSON.stringify(cartArr))
+       window.location.href="/Md Arif/buynow.html"
     })
     div0.append(imgs,button);
    
@@ -53,6 +57,7 @@ function display(data) {
 }
 var cartitems=JSON.parse(localStorage.getItem("selectProduct"))||[]
 function addtocart(elem){
+  elem.quant=1;
 cartitems.push(elem)
 localStorage.setItem("selectProduct",JSON.stringify(cartitems))
 

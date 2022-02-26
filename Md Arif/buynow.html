@@ -10,6 +10,7 @@
     
 </body>
 </html>
+<script src="/landing/data.js"></script>
 <script>
     
     var productArr=JSON.parse(localStorage.getItem("gotocard"));
@@ -42,9 +43,10 @@
         btn1.style.height="37px";
         btn1.addEventListener("click",function(){
              
-             window.location.href = "goToCard.html";
+             window.location.href = "/Md Arif/gotocart.html";
         });
         var btn2=document.createElement("button");
+       
         btn2.innerText="CHECK OUT";
         btn2.style.color="white";
         btn2.style.backgroundColor="black";
@@ -52,6 +54,9 @@
         btn2.style.marginLeft="30px";
         btn2.style.width="148px";
         btn2.style.height="37px";
+        btn2.addEventListener("click",function(){
+            window.location.href="payment.html"
+        })
         var divebtn=document.createElement("div");
         divebtn.append(btn1,btn2);
         div1.append(para,para2,divebtn);
