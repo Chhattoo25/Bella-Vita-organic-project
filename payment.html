@@ -62,10 +62,8 @@
     <p class="p2">your total payable amount <span class="amount"></span></p>
     <div class="main">
         <form action="" id="formtag"><br/>
-          <span>Enter card number</span><br/>
-          <input type="number"id="card" placeholder="enter card number"><br/>
-          <span>Enter Expiry date</span><br/>
-          <input class="inputCard" type="month" name="expiry" id="expiry"/><br/>
+          <span>Enter email</span><br/>
+          <input type="text"id="card" placeholder="enter email"><br/>
           <span>Enter password</span><br/>
           <input type="password" placeholder="password" id="password"><br/>
           <input type="submit" id="payment">
@@ -82,7 +80,7 @@
     document.querySelector("#formtag").addEventListener("submit",function(e){
         e.preventDefault()
         document.querySelector("#card").value=""
-        document.querySelector("#expiry").value=""
+       
         document.querySelector("#password").value=""
         document.querySelector(".show").innerText="Congratulation! you ordered successfully"
        var button =document.createElement("button")

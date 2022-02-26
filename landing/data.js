@@ -309,6 +309,36 @@ allproductdata = [
         pname:"Oil Control Face Wash with Activated Charcoal For Deep Cleansing, Dirt Removal & Skin Brightening, 115ml",
         offprice:"Rs. 250",
         price:199,
-    }
+    },
+    {
+                img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Gold_1_1024x1024.jpg?v=1632213971",
+                pname:"Gold Woman EDP - Luxury Perfume For Women With Long Lasting Fresh & Fruity Fragrance - 100 ml",
+                offprice:"Rs. 999",
+                price:499,
+            },
+            {
+                img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/products/CEO-01_4e7b082a-f9f5-4edf-8a34-2f5724b928d0_1024x1024.jpg?v=1632483668",
+                pname:"CEO Men Perfume Office Wear - 100 ml",
+                offprice:"Rs. 999",
+                price:499,
+            },
+            {
+                img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Fresh-01_1024x1024.jpg?v=1632484618",
+                pname:"Fresh Unisex Perfume For Men & Women with Woody Aquatic Scent EDT Fragrance, 100 ml",
+                offprice:"Rs. 999",
+                price:499,
+            },
+            {
+                img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Lavender_1_1024x1024.jpg?v=1620633214",
+                pname:"Lavender Essential Oil For Skin & Hair Care - 15ml Natural Can be Used as Fragrance Oil, Mixed with Beauty Products, Aromatherapy and Home Candle Soap Making",
+                offprice:"Rs. 299",
+                price:249,
+            },
+            {
+                img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Exfoliate_-Feetlove_1024x1024.jpg?v=1608116979",
+                pname:"Foot Care Combo (Exfoliate + FeetLove)",
+                offprice:"Rs. 898 ",
+                price:489,
+            }
     
 ];

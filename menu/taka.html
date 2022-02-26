@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2eJ660B0w9Mc8fqIBnvBeyM-ANgQHqnFvIA&usqp=CAU" type="image/gif">
+    
+
+    <style>
+      body {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        margin-bottom: -20px;
+      }
+      .Deliver{
+          margin-bottom:20px;
+      }
+      #orderId {
+        color: 
+#5d776a;
+        /* margin-top: 40px; */
+        /* border:1px solid red; */
+      }
+      #ShopinG {
+        /* margin-top: 30px; */
+        border: none;
+        height: 60px;
+        background-color: 
+#5d776a;
+        padding: 20px;
+        border-radius: 5px;
+      }
+      #ShopinG > a {
+        text-decoration: none;
+        font-Size:18px;
+        color: white;
+      }
+      .divcontent {
+        text-align: center;
+        width: 40%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+        height: 600px;
+      }
+      .orderGift {
+        width: 90%;
+        margin-left: 5%;
+        /* margin-top: 100px; */
+      }
+      .totalValueofcart {
+        color: 
+#5d776a;
+      }
+      .orderGifta {
+        margin-top: 30px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="divcontent">
+      <div class="orderGift">
+        <img
+          class="bellalogo"
+          
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdnl00gNK9XeUUdyTR6WJMmnnx4mOIK-_U3g&usqp=CAU"
+          alt=""
+        />
+        <h1>Your Order Is confirm</h1>
+        <p id="orderId">this is your order id 1234509876</p>
+        <h1 class="Deliver">
+          Your Order Will We Deliver In 3 Days.
+        </h1>
+        <h2>Thank For Choose BELLA VITA</h2>
+        
+        <div class="orderGifta">
+          <h2 class="totalValueofcart">0</h2>
+        </div>
+        <button id="ShopinG"><a href="index.html">Continue To Shoping</a></button>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+
+  var total = JSON.parse(localStorage.getItem('total')) || 0;
+
+  document.querySelector(
+    '.totalValueofcart'
+  ).textContent = ` Payment Confirm Of  $ ${total}`;
+</script>
