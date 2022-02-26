@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allproduct</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2eJ660B0w9Mc8fqIBnvBeyM-ANgQHqnFvIA&usqp=CAU" type="image/gif">
+    
+    <style>
+        *{
+            font-family: sans-serif;
+ 
+        }
+        #penCopy{
+            /* border: 3px solid black; */
+            width: 90%;
+            height: auto;
+            background-color: chartreuse;
+        }
+        #container{
+            width: 70%;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            /* border: 1px solid red; */
+            gap: 20px;
+            float: right;
+            margin-right: 50px;
+            
+
+        }
+        #container>div{
+            /* width: 20%; */
+            /* border: 3px solid green; */
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            
+            
+        }
+        /* #container>img{
+            width: 100%;
+        } */
+        #pic{
+            width: 100%;
+            
+        }
+        .price{
+            display: flex;
+            justify-content: space-around;
+            /* border:  1px solid red; */
+            align-items: center;
+            font-size: 18px;
+
+        }
+        #para{
+         font-weight: 500;
+         font-size: 15px;
+         /* hfhj */
+         
+         white-space: nowrap; 
+         width: 200px; 
+         height:40px;
+         /* border: 1px solid #000000; */
+        
+         overflow: hidden;
+        text-overflow: ellipsis;
+       }
+       /* #para:hover {
+        overflow: visible;
+        } */
+    #short{
+        display: flex;
+        width: 75%;
+        float: right;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        /* border: 1px solid red; */
+        padding: 30px;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+    }
+    #cart{
+        /* padding-left: 200px; */
+        /* margin: auto; */
+         /* border: 1px solid blue; */
+         font-size: 16px;
+         /* background-color: red; */
+         font-weight: 800;
+         display: flex;
+         justify-content: center;
+         padding: 20px;;
+
+
+    }
+    #mobilePen{
+        height: 380px;
+        /* border: 1px solid black; */
+        padding: 5px;
+    }
+    #GOTOCART{
+        /* padding: 20px; */
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    #viewAs{
+        padding: 20px;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    #priceSort{
+        padding: 20px;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    #viewAs:hover{
+        cursor: pointer;
+        background-color: black;
+        color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        /* text-align: center; */
+    }
+    #short>div{
+        /* display: grid;  */
+        /* padding-left: 350px;  */
+         /* border: 1px solid blue;  */
+        width: 70%; 
+
+     } 
+     .addBtn{
+         width: 100%;
+         font-size: 16px;
+         padding: 10px;
+         background-color: black;
+         color: white;
+     }
+
+    
+    @media only screen and (max-width:800px) and (min-width:400px){
+        #container{
+            grid-template-columns: repeat(2,1fr);
+            /* background-color: red; */
+        }
+    } 
+
+
+    </style>
+</head>
+<body>
+    <div id="penCopy">
+
+
+        <div id="short">
+            <div id="viewAs">Views As </div>
+            <div id="cart">
+                <a id="GOTOCART" href="Addtocart.html"> Go to cart <i class="fa fa-fw fa-cart-plus"></i></a>
+            </div>
+            <div>
+                <select id="priceSort" onchange="handlePriceSort()">
+                    <option value="">Sorted By Price</option>
+                    <option value="high">High to Low</option>
+                    <option value="low">Low to High</option>
+                </select>
+    
+            </div>
+    
+        </div>
+    
+            <div id="container"></div>
+    
+    </div>
+
+    
+    
+</body>
+</html>
+<script>
+var allproductdata=JSON.parse(localStorage.getItem("allproductdata"))
+console.log(allproductdata)
+displaydata(allproductdata);
+
+var cartArr = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+
+function handlePriceSort(){
+    var selected=document.querySelector("#priceSort").value;
+    // console.log(selected);
+
+    if(selected == "high"){
+      //decending
+      allproductdata.sort(function(a,b){
+        return Number(b.price) - Number(a.price);
+      })
+    }
+    if((selected=="low")){
+      //acending
+      allproductdata.sort(function (a,b) {
+        return Number(a.price) - Number(b.price);
+    })
+   }
+   console.log(allproductdata);
+   displaydata(allproductdata);
+  }
+
+  function displaydata(allproductdata){
+            document.querySelector("#container").innerHTML = "";
+
+allproductdata.map(function(elem,index,array){
+    var innerdiv=document.createElement("div");
+
+    var mobilePen=document.createElement("div")
+    mobilePen.setAttribute("id","mobilePen")
+
+    var image=document.createElement("img");
+    image.setAttribute("src",elem.img)
+    image.setAttribute("id","pic")
+
+    // var div1=document.createElement("div");
+    // div1.setAttribute("class","div1");
+    // var i1=document.createElement("i");
+    // i1.setAttribute("class","fas fa-star")
+    // var i2=document.createElement("i");
+    // i2.setAttribute("class","fas fa-star")
+    // var i3=document.createElement("i");
+    // i3.setAttribute("class","fas fa-star")
+    // var i4=document.createElement("i");
+    // i4.setAttribute("class","fas fa-star")
+    // var i5=document.createElement("i");
+    // i1.setAttribute("class","fas fa-star-half-alt")
+    // var span=document.createElement("span");
+    // span.innerText="1909 reviews";
+
+    // div1.append(i1,i2,i3,i4,i5,span);
+
+    var pname=document.createElement("p");
+    pname.setAttribute("id","para")
+    pname.innerText=elem.pname;
+
+    var div2=document.createElement("div")
+    div2.setAttribute("class","price")
+
+    var offprice=document.createElement("s");
+    offprice.innerText=elem.offprice;
+    
+    var price=document.createElement("p");
+    price.innerText=`$ ${elem.price}`;
+
+
+
+
+
+    var cBtn = document.createElement("button");
+        cBtn.innerText = "Add to Cart";
+        cBtn.setAttribute("class","addBtn")
+        cBtn.addEventListener("click" , function(){
+        cartdata(elem);
+        })
+
+    div2.append(offprice,price)
+
+    mobilePen.append(image,pname,div2,cBtn)
+
+    innerdiv.append(mobilePen);
+    document.querySelector("#container").append(innerdiv);
+});
+
+function cartdata(elem){
+    console.log(elem);
+    elem.quantity = 1;
+    cartArr.push(elem);
+    console.log(cartArr);
+    localStorage.setItem("cartItems", JSON.stringify(cartArr));
+}
+}
+
+</script>

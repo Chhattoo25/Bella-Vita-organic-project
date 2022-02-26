@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloth Cart</title>
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+    crossorigin="anonymous"
+  />
+  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfhAfSsMp4_83yQCkNhL_n1ct6bVXja0OxPQ&usqp=CAU" type="image/gif">
+    
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <style>
+    #total{
+      /* height: 65px; */
+      width: 200px;
+      background-color: #4b5666;
+      text-align: center;
+      line-height: 18px;
+      border-radius: 10px;
+      /* margin-left: 80px; */
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      
+      justify-content: space-around;
+      color: white;
+    }
+
+    #payment{
+      /* height: 35px; */
+      width: 150px;
+      background-color: #4b5666;
+      margin-right:20px;
+      /* background-color: #4b5666; */
+      text-align: center;
+      line-height: 18px;
+      border-radius: 10px;
+      /* margin-left: 80px; */
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      
+      justify-content: space-around;
+      color: white;
+      
+      /* margin-top: 20px; */
+    }
+    #payment>button{
+      font-size:20px;
+      background-color: #4b5666;
+      border: none;
+      color:white
+    }
+    #ToatalPaymentCart{
+      border: 3px solid green;
+      display: flex;
+      height: 100px;
+      gap: 40px;
+      background-color: #f3c746;
+      justify-content: flex-end;
+      
+      /* float: right; */
+    }
+    .addBtn{
+        /* border: 3px solid yellow; */
+        font-size: 18px;
+        padding:5px 20px;
+    }
+
+    
+    h2{
+      display: flex;
+    }
+  
+    
+    .button{
+      height: 35px;
+      width: 80px;
+    }
+
+    #cart{
+      color: black;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #maindiv{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: auto;
+      gap: 20px;
+      width: 90%;
+      margin:auto;
+      font-family: sans-serif;
+      /* border: 2px solid red; */
+    }
+
+    h2{
+      display: inline;
+      margin-top: 6px;
+    }
+
+    /* p{
+      margin-left: 20px;
+      display: inline-block;
+      
+    } */
+
+    #maindiv > div{
+      text-align: center;
+      /* width: 20%; */
+      margin-top: 20px;
+      /* border: 2px solid black; */
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    }
+    #cartDivBtn{
+      /* border: 2px solid red; */
+      width: 70%;
+      margin: auto;
+      display:flex;
+      justify-content: space-around;
+    }
+    #photo{
+      /* height:100px; */
+      width:100%;
+    }
+    
+    
+  </style>
+  
+  
+</head>
+<body>
+
+ 
+  
+  <div id="ToatalPaymentCart">
+    
+    <div id="total">
+     <p>Total Amount</p>
+    <p id="final">0</p>
+    </div>
+
+    <div id="payment">
+    <button onclick="window.location.href='pay.html'">Proceed to Pay</button>
+    </div>
+  </div>
+
+  <div id="maindiv">
+
+  </div>
+  
+
+  <!-- <h3 id="totalQty">0</h3> -->
+  
+</body>
+</html>
+
+<script>
+
+var cartArr = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+console.log(cartArr)
+
+// displaydata(clothData);
+// console.log(displaydata)
+
+function displaydata(allproductitems){
+    document.querySelector("#maindiv").innerHTML = "";
+
+    allproductitems.map(function(element,index,array){
+
+var childdiv = document.createElement("div");
+
+var image = document.createElement("img");
+image.setAttribute("src",element.img);
+image.setAttribute("id","photo");
+
+var name = document.createElement("p");
+name.innerText=element.pname;
+
+// correct
+
+var price = document.createElement("p");
+price.innerText=`$ ${element.price}`;
+
+
+
+var cartDivBtn=document.createElement("div");
+cartDivBtn.setAttribute("id","cartDivBtn")
+
+
+var btn1 = document.createElement("button");
+btn1.setAttribute("class","addBtn")
+btn1.innerText = "Add +1"
+btn1.addEventListener("click" , function(){
+  increaseQuantity(index);
+});
+
+    var btn2 = document.createElement("button");
+    btn2.setAttribute("class","addBtn")
+    btn2.innerText = "Minus -1"
+    btn2.addEventListener("click" , function(){
+      decreaseQuantity(index);
+    });
+    cartDivBtn.append(btn1,btn2)
+
+childdiv.append(image,name,price,cartDivBtn);
+
+document.querySelector("#maindiv").append(childdiv);
+
+})
+
+}
+
+function showtotal(){
+  var total = cartArr.reduce(function(accumulator,element,index,array){
+  return accumulator + (element.price * element.quantity);
+  },0)
+
+  document.querySelector("#final").innerText = `$ ${total}`;
+  localStorage.setItem("total",JSON.stringify(total)) || [];
+}
+
+displaydata(cartArr);
+
+function increaseQuantity(index){
+  console.log(index);
+  cartArr[index].quantity++;
+  console.log(cartArr);
+  localStorage.setItem("cartItems", JSON.stringify(cartArr));
+
+  displaydata(cartArr);
+  showtotal();
+}
+
+function decreaseQuantity(index){
+  console.log(index);
+  cartArr[index].quantity--;
+  console.log(cartArr);
+  localStorage.setItem("cartItems", JSON.stringify(cartArr));
+
+  displaydata(cartArr);
+  showtotal();
+}
+
+
+</script>
