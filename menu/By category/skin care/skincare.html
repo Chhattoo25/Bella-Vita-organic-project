@@ -32,7 +32,7 @@
       <div class="col-sm-12">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#"
+            <a class="navbar-brand" href="/landing/index.html"
               ><img src="/landing/images/company_logo.jpg"
             /></a>
             <button
@@ -65,13 +65,13 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" href="#">
-                    <select style="border-style: none">
+                    <select style="border-style: none" class="category" onChange="changepage()">
                       <option><a href="#">BY CATEGORY</a></option>
-                      <option><a href="#">Skin Care</a></option>
-                      <hr />
-                      <option><a href="#">Hair Care</a></option>
-                      <option><a href="#">Face Care</a></option>
-                      <option><a href="#">Body Care</a></option>
+                      <option value="skin"><a >Skin Care</a></option>
+                      <hr/>
+                      <option value="hair"><a >Hair Care</a></option>
+                      <option value="face"><a >Face Care</a></option>
+                      <option value="body"><a >Body Care</a></option>
                       <option><a href="#">Essentail Oils</a></option>
                       <option><a href="#">Perfumes</a></option>
                       <option><a href="#">Natural Soaps</a></option>
@@ -81,12 +81,12 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" href="#">
-                    <select style="border-style: none">
+                    <select style="border-style: none"class="concern" onChange="concernitem()">
                       <option><a href="#">BY CONCERN</a></option>
-                      <option><a href="#">Acne & Pimples</a></option>
-                      <option><a href="#">Oily Skin</a></option>
-                      <option><a href="#">Tannig</a></option>
-                      <option><a href="#">Underarm Lightening</a></option>
+                      <option value="pimple"><a >Acne & Pimples</a></option>
+                      <option value="oily"><a >Oily Skin</a></option>
+                      <option value="tanning"><a >Tannig</a></option>
+                      <option value="underarm"><a >Underarm Lightening</a></option>
                       <option><a href="#">Blackheads</a></option>
                       <option><a href="#">Body Odor</a></option>
                       <option><a href="#">Hair Fall</a></option>

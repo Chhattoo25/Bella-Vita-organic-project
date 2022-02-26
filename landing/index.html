@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BestSellers: Best Seller</title>
-    <link href="/By category/skin care/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Bella Vita Organic</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/index.css" rel="stylesheet"/>
-    <script src="/By category/skin care/js/bootstrap.min.js"></script>
-    <link href="/By category/skin care/css/all.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.min.js"></script>
+    <link href="/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Monoton&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <!-- font Aswome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="skincare.css">
 
 </head>
 <body>
@@ -30,7 +37,7 @@
 <div class="col-sm-12">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="/landing/images/company_logo.jpg"/></a>
+          <a class="navbar-brand" href="#"><img src="images/company_logo.jpg"/></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -51,36 +58,35 @@
                   <li class="nav-item">
                     <a class="nav-link active" href="#"> 
                     
-                      <select style="border-style: none;">
-                        <option> <a href="#">BY CATEGORY</a></option>
-                        <option><a href="#">Skin Care</a>  </option><hr>
-                        <option><a href="#">Hair Care</a>  </option>
-                        <option> <a href="#">Face  Care</a> </option>
-                        <option><a href="#">Body Care</a> </option>
-                        <option> <a href="#">Essentail Oils</a></option>
-                        <option>  <a href="#">Perfumes</a></option>
-                        <option> <a href="#">Natural Soaps</a></option>
-                        <option>  <a href="#">Hair Comps</a></option>
+                      <select style="border-style: none" class="category" onChange="changepage()">
+                        <option ><a >BY CATEGORY</a></option>
+                        <option value="skin"><a >Skin Care</a></option>
+                        <hr/>
+                        <option value="hair"><a >Hair Care</a></option>
+                        <option value="face"><a >Face Care</a></option>
+                        <option value="body"><a >Body Care</a></option>
+                        <option><a >Essentail Oils</a></option>
+                        <option><a >Perfumes</a></option>
+                        <option><a >Natural Soaps</a></option>
+                        <option><a >Hair Comps</a></option>
                       </select>
                     </a>
-                 
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" href="#">
-                      <select style="border-style: none;">
-                        <option> <a href="#">BY CONCERN</a></option>
-                        <option><a href="#">Acne & Pimples</a>  </option>
-                        <option><a href="#">Oily Skin</a>  </option>
-                        <option> <a href="#">Tannig</a> </option>
-                        <option><a href="#">Underarm Lightening</a> </option>
-                        <option> <a href="#">Blackheads</a></option>
-                        <option>  <a href="#">Body Odor</a></option>
-                        <option> <a href="#">Hair Fall</a></option>
-                        <option>  <a href="#">Dandruff</a></option>
-                        <option> <a href="#">Dry Skin</a></option>
-                        <option>  <a href="#">Sensitive Skin</a></option>
-                        <option> <a href="#">Dull Skin</a></option>
-                     
+                      <select style="border-style: none"class="concern" onChange="concernitem()" >
+                        <option><a href="#">BY CONCERN</a></option>
+                        <option value="pimple"><a >Acne & Pimples</a></option>
+                        <option value="oily"><a >Oily Skin</a></option>
+                        <option value="tanning"><a >Tannig</a></option>
+                        <option value="underarm"><a >Underarm Lightening</a></option>
+                        <option><a href="#">Blackheads</a></option>
+                        <option><a href="#">Body Odor</a></option>
+                        <option><a href="#">Hair Fall</a></option>
+                        <option><a href="#">Dandruff</a></option>
+                        <option><a href="#">Dry Skin</a></option>
+                        <option><a href="#">Sensitive Skin</a></option>
+                        <option><a href="#">Dull Skin</a></option>
                       </select>
                     </a>
                   </li>
@@ -100,7 +106,7 @@
                 <a class="nav-link active" href="#">    </a>
               </li>
              <li class="nav-item">
-               <a class="nav-link active " href="#"><i class="fa fa-user-o"style="font-size: 25px;"></i></a>
+               <a class="nav-link active " href="#"><i class="fa fa-user"style="font-size: 25px;"></i></a>
              </li>
              <li class="nav-item">
                 <a class="nav-link active" href="#">    </a>
@@ -167,74 +173,72 @@
 
 <!--end------slider-->
 <!--categree-->
-</br>
-<div class="row">
-  <div class="col-sm-12">
-    <p style="margin-left: 15px;">Home >  Natural & Ayurvedic Beauty Care Products </p>
+<div class="product_show">
+  <!-- side bar -->
+  <div class="left">
+    <div class="refine">
+      <i class="fas fa-sort icon" style="color: #969696"></i>
+      <span>REFINE BY</span>
+    </div>
+    <div class="col-sm">
+      <p style="margin-left: 20px">CATEGORIES</p>
+      <hr />
+      <div class="categre_menu">
+        <ul class="list_item">
+          <li><a href="">All Products</a></li>
+          <li><a href="">Bestsellers</a></li>
+          <li><a href="">Offers</a></li>
+          <li><a href="">SELFIE SWITCH</a></li>
+          <li><a href="">Build A Box</a></li>
+          <li onClick="hide1()" style="cursor: pointer">
+            By Category<i class="fas fa-angle-down icon1"></i>
+            <ul class="category1 disp disp1">
+              <li><a href="/skin care/skincare.html">Skin Care</a></li>
+              <li><a href="">Hair Care</a></li>
+              <li><a href="">Face Care</a></li>
+              <li><a href="">Body Care</a></li>
+            </ul>
+          </li>
+          <li onClick="hide2()" style="cursor: pointer">
+            By Concern<i class="fas fa-angle-down icon1"></i>
+            <ul class="category2 disp disp1">
+              <li><a href="">Acne & Pinples</a></li>
+              <li><a href="">Oily Skin</a></li>
+              <li><a href="">Tanning</a></li>
+              <li><a href="">Underarm Kightening</a></li>
+            </ul>
+          </li>
+          <li onClick="hide3()" style="cursor: pointer">
+            By Gradient<i class="fas fa-angle-down icon1"></i>
+            <ul class="category3 disp disp1">
+              <li><a href="">Aloevera</a></li>
+              <li><a href="">Coffee</a></li>
+              <li><a href="">Honey</a></li>
+              <li><a href="">Neem</a></li>
+            </ul>
+          </li>
+          <li><a href="">Combo</a></li>
+          <li><a href="">Our Celebrities</a></li>
+          <li><a href="">Natural Soap</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
-<div class="categre">
-<div class="col-sm-2">
-  <p style="margin-left: 20px;">CATEGORIES</p><hr>
-  <div class="categre_menu">
-    <ul style="list-style: none;">
-   
-      <li><a href="#" class="black" >>All Products</a></li>
-  
-   <li><a href="#" class="black" >Bestsellers</a></li>
-
-      <li><a href="#" class="black" >Offers</a></li>
-   
-      <li><a href="#" class="black" >SELFIE SWITCH</a></li>
-   
-      <li><a href="#" class="black" >Build A Box</a></li>
-    
-      <li><a href="#" class="black" >
-        <select style="border-style: none;">
-          <option> <a href="#">by category</a></option>
-          <option><a href="#">Skin Care</a>  </option><hr>
-          <option><a href="#">Hair Care</a>  </option>
-          <option> <a href="#">Face  Care</a> </option>
-          <option><a href="#">Body Care</a> </option>
-          <option> <a href="#">Essentail Oils</a></option>
-          <option>  <a href="#">Perfumes</a></option>
-          <option> <a href="#">Natural Soaps</a></option>
-          <option>  <a href="#">Hair Comps</a></option>
+  <!-- right side box -->
+  <div class="right_box">
+    <div class="sort_item">
+      <div class="left_side">View as recomanded</div>
+      <div class="right_side">
+        sort by
+        <select name="sort" id="sort" onChange="selectitem()">
+          <option value="featured">Featured</option>
+          <option value="l2h">price,low to high</option>
+          <option value="h2l">price,high to low</option>
         </select>
-      </a></li>
-   
-     <li> <a href="#" class="black" >
-      <select style="border-style: none;">
-        <option> <a href="#">By Concern</a></option>
-        <option><a href="#">Acne & Pimples</a>  </option>
-        <option><a href="#">Oily Skin</a>  </option>
-        <option> <a href="#">Tannig</a> </option>
-        <option><a href="#">Underarm Lightening</a> </option>
-        <option> <a href="#">Blackheads</a></option>
-        <option>  <a href="#">Body Odor</a></option>
-        <option> <a href="#">Hair Fall</a></option>
-        <option>  <a href="#">Dandruff</a></option>
-        <option> <a href="#">Dry Skin</a></option>
-        <option>  <a href="#">Sensitive Skin</a></option>
-        <option> <a href="#">Dull Skin</a></option>
-     
-      </select>
-     </a></li>
-     
-    <li> <a href="#" class="black" >Combos</a></li>
-  
-      <li><a href="#" class="black" >Our Celebrities</a></li>
-  
-      <li><a href="#" class="black" >Natural Soaps</a></li>
-    
-     <li> <a href="#" class="black" > More</a></li>
-    </ul>
-   
-   
+      </div>
+    </div>
+    <div class="right"></div>
   </div>
-
-
-</div>
 </div>
 <!--end categree-->
 <!--footer-->
@@ -331,6 +335,8 @@
 <p>©2020 Bella Vita Organic</p>
    </div>
 </div>
+<script src="data.js"></script>
+<script src="skincare.js"></script>
 
 
 

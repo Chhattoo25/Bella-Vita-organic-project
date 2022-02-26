@@ -119,3 +119,30 @@ if(selectval=="l2h"){
  display(h2ldata)
 }
 }
+function concernitem(){
+  var concern=document.querySelector(".concern").value;
+  if(concern=="pimple"){
+    window.location.href="/menu/By concern/Acne & pinmple/skincare.html"
+  }else if(concern=="oily"){
+    window.location.href="/menu/By concern/Oily skin/skincare.html"
+  }else if(concern=="tanning"){
+    window.location.href="/menu/By concern/Tanning/skincare.html"
+  }else if(concern=="underarm"){
+    window.location.href="/menu/By concern/underarm Lighting"
+  }
+}
+function changepage(){
+  var category=document.querySelector(".category").value
+  if(category=="skin"){
+    window.location.href="/menu/By category/skin care/skincare.html"
+  }else if(category=="face"){
+    window.location.href="/menu/By category/face care/skincare.html"
+
+  }else if(category=="hair"){
+    window.location.href="/menu/By category/hair care/skincare.html"
+
+  }else if(category=="body"){
+    window.location.href="/menu/By category/body care/skincare.html"
+
+  }
+}
